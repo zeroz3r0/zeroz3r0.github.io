@@ -12,10 +12,8 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
-
     html[lang="en"] .es { display: none; }
     html[lang="es"] .en { display: none; }
-
     nav { position: sticky; top: 0; z-index: 10; background: rgba(13,13,13,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 14px 0; }
     nav .container { display: flex; justify-content: space-between; align-items: center; }
     nav .logo { font-weight: 600; font-size: 15px; color: var(--text); }
@@ -25,7 +23,6 @@
     nav ul a:hover { color: var(--text); text-decoration: none; }
     #lang-btn { background: none; border: 1px solid var(--border); color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .08em; padding: 4px 10px; border-radius: 4px; cursor: pointer; transition: color .2s, border-color .2s; }
     #lang-btn:hover { color: var(--text); border-color: var(--text); }
-
     .hero { padding: 100px 0 72px; border-bottom: 1px solid var(--border); }
     .hero .tag { display: inline-block; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 3px 10px; border-radius: 4px; margin-bottom: 24px; }
     .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 20px; }
@@ -35,16 +32,13 @@
     .btn:hover { opacity: .8; text-decoration: none; }
     .btn-primary { background: var(--accent); color: #000; }
     .btn-ghost { border: 1px solid var(--border); color: var(--text); }
-
     section { padding: 72px 0; border-bottom: 1px solid var(--border); }
     section:last-child { border-bottom: none; }
     .section-label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
     h2 { font-size: 26px; font-weight: 600; margin-bottom: 20px; letter-spacing: -.01em; }
-
     .about-text p { color: var(--muted); margin-bottom: 16px; }
     .about-text p:last-child { margin-bottom: 0; }
     .about-text strong { color: var(--text); }
-
     .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 32px; margin-bottom: 16px; }
     .project-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
     .project-meta { font-size: 13px; color: var(--accent); margin-bottom: 16px; }
@@ -54,21 +48,21 @@
     .highlights { list-style: none; }
     .highlights li { font-size: 14px; color: var(--muted); padding: 6px 0; border-top: 1px solid var(--border); display: flex; gap: 10px; align-items: baseline; }
     .highlights li::before { content: "->"; color: var(--accent); flex-shrink: 0; font-family: monospace; }
-
+    .bug-grid { display: flex; flex-direction: column; gap: 24px; }
     .bug-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
     .bug-header { padding: 24px 32px 20px; border-bottom: 1px solid var(--border); }
     .bug-id { font-size: 12px; font-family: monospace; color: var(--muted); margin-bottom: 8px; }
-    .bug-title { font-size: 20px; font-weight: 600; margin-bottom: 14px; }
+    .bug-title { font-size: 18px; font-weight: 600; margin-bottom: 14px; }
     .bug-badges { display: flex; gap: 8px; flex-wrap: wrap; }
     .badge { font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; }
     .badge-critical { background: #3d1a1a; color: #f87171; }
     .badge-blocker { background: #3d2a1a; color: #fb923c; }
+    .badge-low { background: #1a2a3d; color: #60a5fa; }
+    .badge-minor { background: #2a2a1a; color: #fbbf24; }
     .badge-android { background: var(--accent-dim); color: var(--accent); }
-    .bug-body { padding: 28px 32px; }
-    .bug-field { margin-bottom: 24px; }
-    .bug-field:last-child { margin-bottom: 0; }
+    .bug-body { padding: 28px 32px; display: flex; flex-direction: column; gap: 24px; }
     .bug-field-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 8px; }
-    .bug-field p { color: var(--muted); font-size: 15px; }
+    .bug-field p, .bug-field li { color: var(--muted); font-size: 15px; }
     .bug-steps { list-style: none; counter-reset: steps; }
     .bug-steps li { counter-increment: steps; display: flex; gap: 12px; font-size: 14px; color: var(--muted); padding: 6px 0; border-top: 1px solid var(--border); align-items: baseline; }
     .bug-steps li::before { content: counter(steps); min-width: 20px; color: var(--accent); font-family: monospace; font-weight: 600; flex-shrink: 0; }
@@ -79,16 +73,15 @@
     .bug-vs-item.expected .label { color: var(--accent); }
     .bug-vs-item.actual .label { color: #f87171; }
     .bug-vs-item p { font-size: 14px; color: var(--muted); }
-    .bug-screenshot { margin-top: 24px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
-    .bug-screenshot img { width: 100%; display: block; }
-    .bug-note { margin-top: 12px; font-size: 13px; color: var(--muted); font-style: italic; }
-
+    .bug-note { font-size: 13px; color: var(--muted); font-style: italic; }
+    .bug-devices { display: flex; flex-direction: column; gap: 6px; }
+    .bug-devices .device-row { font-size: 14px; color: var(--muted); display: flex; gap: 8px; align-items: baseline; }
+    .bug-devices .device-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); min-width: 100px; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
     .skill-block { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
     .skill-block h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 12px; }
     .skill-block ul { list-style: none; }
     .skill-block li { font-size: 14px; color: var(--muted); padding: 3px 0; }
-
     .exp-item { margin-bottom: 36px; }
     .exp-item:last-child { margin-bottom: 0; }
     .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
@@ -96,19 +89,14 @@
     .period { font-size: 13px; color: var(--muted); }
     .exp-company { font-size: 14px; color: var(--accent); margin-bottom: 10px; }
     .exp-item p { color: var(--muted); font-size: 15px; }
-
     .contact-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
     .contact-links a { font-size: 15px; color: var(--muted); transition: color .2s; }
     .contact-links a:hover { color: var(--text); text-decoration: none; }
-
     footer { padding: 32px 0; text-align: center; font-size: 13px; color: var(--muted); border-top: 1px solid var(--border); }
-
     @media (max-width: 600px) {
-      .hero { padding: 64px 0 48px; }
-      section { padding: 48px 0; }
-      .project-card, .bug-header, .bug-body { padding: 20px; }
-      .bug-vs { grid-template-columns: 1fr; }
-      nav ul { gap: 16px; }
+      .hero { padding: 64px 0 48px; } section { padding: 48px 0; }
+      .project-card { padding: 20px; } .bug-header, .bug-body { padding: 20px; }
+      .bug-vs { grid-template-columns: 1fr; } nav ul { gap: 14px; }
     }
   </style>
 </head>
@@ -116,13 +104,13 @@
 
 <nav>
   <div class="container">
-    <span class="logo">Sergio Perez</span>
+    <span class="logo">Sergio Pérez</span>
     <div class="nav-right">
       <ul>
-        <li><a href="#about"><span class="en">About</span><span class="es">Sobre mi</span></a></li>
+        <li><a href="#about"><span class="en">About</span><span class="es">Sobre mí</span></a></li>
         <li><a href="#work"><span class="en">Work</span><span class="es">Proyectos</span></a></li>
         <li><a href="#bugs"><span class="en">Bug Reports</span><span class="es">Bug Reports</span></a></li>
-        <li><a href="#skills"><span class="en">Skills</span><span class="es">Skills</span></a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
       </ul>
       <button id="lang-btn" onclick="toggleLang()">ES</button>
@@ -135,10 +123,10 @@
   <div class="hero">
     <div class="container">
       <div class="tag en">Open to work</div>
-      <div class="tag es">En busqueda activa</div>
+      <div class="tag es">En búsqueda activa</div>
       <h1>QA Engineer<br>Mobile Games</h1>
       <p class="en">Two years testing mobile games end to end. Functional, performance, SDK integrations, device matrices. I build the tools I need when they do not exist.</p>
-      <p class="es">Dos anos probando juegos moviles de principio a fin. Funcional, rendimiento, integraciones de SDKs, matrices de dispositivos. Construyo las herramientas que necesito cuando no existen.</p>
+      <p class="es">Dos años probando juegos móviles de principio a fin. Funcional, rendimiento, integraciones de SDKs, matrices de dispositivos. Si la herramienta que necesito no existe, la construyo.</p>
       <div class="hero-links">
         <a class="btn btn-primary" href="mailto:sergioperezc109@gmail.com"><span class="en">Get in touch</span><span class="es">Contactar</span></a>
         <a class="btn btn-ghost" href="https://github.com/zeroz3r0" target="_blank" rel="noopener">GitHub</a>
@@ -150,48 +138,43 @@
   <section id="about">
     <div class="container">
       <div class="section-label en">About</div>
-      <div class="section-label es">Sobre mi</div>
+      <div class="section-label es">Sobre mí</div>
       <h2 class="en">How I work</h2>
-      <h2 class="es">Como trabajo</h2>
+      <h2 class="es">Cómo trabajo</h2>
       <div class="about-text en">
         <p>Most of my time goes into validating builds before they ship: functional testing, performance, SDK integrations for analytics and advertising, localisation, and a fair amount of ADB work. I use Jira daily and I am comfortable reading logcat for what it actually tells you, not just copying the stack trace into a ticket.</p>
         <p>I think a QA engineer who understands <strong>why</strong> something breaks is a lot more useful to a dev team than one who only reports that it broke. Bug reports should give developers something actionable, not just a description of what they can already see on screen.</p>
         <p>I also built <strong>GamePerf</strong>, a desktop tool for measuring mobile game performance, because the existing options either cost too much or required modifying the game. It is open source and I use it at work.</p>
       </div>
       <div class="about-text es">
-        <p>La mayor parte del tiempo la paso validando builds antes de que salgan a produccion: pruebas funcionales, rendimiento, integraciones de SDKs de analitica y publicidad, localizacion, y bastante trabajo con ADB. Uso Jira a diario y me manejo bien leyendo logcat por lo que realmente dice, no solo copiando el stack trace en un ticket.</p>
-        <p>Creo que un QA que entiende <strong>por que</strong> falla algo es mucho mas util para un equipo de desarrollo que uno que solo reporta que ha fallado. Los informes de bugs tienen que darle al desarrollador algo concreto con lo que trabajar, no solo una descripcion de lo que ya puede ver en pantalla.</p>
-        <p>Tambien construi <strong>GamePerf</strong>, una herramienta de escritorio para medir el rendimiento de juegos moviles, porque las opciones que existian o eran demasiado caras o requerían modificar el juego. Es codigo abierto y la uso en el trabajo.</p>
+        <p>Llevo dos años trabajando en QA de videojuegos móviles. El grueso del trabajo es validar builds antes de cada lanzamiento: pruebas funcionales, rendimiento, integraciones de SDKs de analítica y publicidad, localización, y bastante adb. Uso Jira a diario y me manejo bien con logcat — no me limito a copiar el stack trace en el ticket, sino a entender qué lo está causando.</p>
+        <p>Un QA que entiende <strong>por qué</strong> falla algo es mucho más útil para desarrollo que uno que solo anota que ha fallado. Intento que mis reportes den contexto de verdad: qué dispositivo, en qué condiciones, qué dice el log, si es reproducible al 100% o solo a veces y por qué.</p>
+        <p>También construí <strong>GamePerf</strong>, una herramienta de escritorio para medir el rendimiento de juegos móviles sin tocar el código del juego. La uso en el trabajo y es código abierto.</p>
       </div>
     </div>
   </section>
 
   <section id="work">
     <div class="container">
-      <div class="section-label">Projects</div>
+      <div class="section-label en">Projects</div>
+      <div class="section-label es">Proyectos</div>
       <h2 class="en">Selected work</h2>
-      <h2 class="es">Proyectos destacados</h2>
+      <h2 class="es">Trabajo destacado</h2>
       <div class="project-card">
         <h3>GamePerf Desktop</h3>
         <div class="project-meta">Open source &middot; Kotlin &middot; Compose Desktop &middot; Android and iOS</div>
         <p class="en">A desktop tool for measuring mobile game performance without scripts, terminals, or modifying the game. Connect a phone, press start, get a report with FPS, CPU, memory, temperature, GPU usage, network bandwidth, and a gameplay video synced to the metrics timeline.</p>
-        <p class="es">Herramienta de escritorio para medir el rendimiento de juegos moviles sin scripts, terminal ni modificar el juego. Conectas el movil, le das a empezar, y obtienes un informe con FPS, CPU, memoria, temperatura, uso de GPU, ancho de banda y un video del gameplay sincronizado con la linea de tiempo de metricas.</p>
+        <p class="es">Herramienta de escritorio para medir el rendimiento de juegos móviles sin scripts, terminal ni tocar el código del juego. Conectas el móvil, le das a empezar y obtienes un informe con FPS, CPU, memoria, temperatura, uso de GPU, ancho de banda de red y un vídeo del gameplay sincronizado con la línea de tiempo de métricas.</p>
         <div class="tag-list">
           <span>Kotlin</span><span>Compose Desktop</span><span>ADB</span><span>Python</span><span>GitHub Actions</span><span>Android</span><span>iOS</span>
         </div>
         <ul class="highlights">
-          <li class="en">Automatic detection of ads, IAP, and loading screens so FPS averages reflect actual gameplay, not SDK overhead</li>
-          <li class="es">Deteccion automatica de anuncios, IAP y pantallas de carga para que las medias de FPS reflejen el juego real, no los SDKs</li>
-          <li class="en">GPU usage without root on Mali and Adreno chipsets via kernel sysfs, with graceful fallback on unsupported devices</li>
-          <li class="es">Uso de GPU sin root en chipsets Mali y Adreno via kernel sysfs, con fallback en dispositivos no compatibles</li>
-          <li class="en">Wake lock monitoring against Google Play Vitals 2024 thresholds to catch misconfigured analytics SDKs before they hurt store ranking</li>
-          <li class="es">Monitorizacion de wake locks segun los umbrales de Google Play Vitals 2024 para detectar SDKs de analitica mal configurados</li>
-          <li class="en">Game phase detection for Unity and Unreal by reading scene names from logcat with zero instrumentation required</li>
-          <li class="es">Deteccion de fases de juego en Unity y Unreal leyendo nombres de escena del logcat, sin instrumentacion</li>
-          <li class="en">Session export as a self-contained .gameperf file and built-in side-by-side session comparison</li>
-          <li class="es">Exportacion de sesiones como archivo .gameperf autocontenido y comparador integrado de dos sesiones</li>
-          <li class="en">300+ tests, CI and release pipelines building Mac, Windows and Linux installers in parallel</li>
-          <li class="es">300+ tests, pipelines de CI y release construyendo instaladores para Mac, Windows y Linux en paralelo</li>
+          <li><span class="en">Automatic detection of ads, IAP, and loading screens so FPS averages reflect actual gameplay, not SDK overhead</span><span class="es">Detección automática de anuncios, IAP y pantallas de carga para que las medias de FPS reflejen el gameplay real, no la sobrecarga de los SDKs</span></li>
+          <li><span class="en">GPU usage without root on Mali and Adreno chipsets via kernel sysfs, with graceful fallback on unsupported devices</span><span class="es">Uso de GPU sin root en chipsets Mali y Adreno vía kernel sysfs, con fallback automático en dispositivos que no lo exponen</span></li>
+          <li><span class="en">Wake lock monitoring against Google Play Vitals 2024 thresholds to catch misconfigured analytics SDKs before they hurt store ranking</span><span class="es">Monitorización de wake locks según los umbrales de Google Play Vitals 2024 — detecta SDKs de analítica mal configurados antes de que afecten al ranking en tienda</span></li>
+          <li><span class="en">Game phase detection for Unity and Unreal by reading scene names from logcat with zero instrumentation required</span><span class="es">Detección de fases de juego en Unity y Unreal leyendo los nombres de escena del logcat, sin instrumentación ni acceso al código fuente</span></li>
+          <li><span class="en">Session export as a self-contained .gameperf file and built-in side-by-side session comparison</span><span class="es">Exportación de sesiones como archivo .gameperf autocontenido y comparador integrado entre dos sesiones</span></li>
+          <li><span class="en">300+ tests, CI and release pipelines building Mac, Windows and Linux installers in parallel</span><span class="es">Más de 300 tests y pipelines de CI y release que construyen instaladores para Mac, Windows y Linux en paralelo</span></li>
         </ul>
         <br>
         <a class="btn btn-ghost" href="https://github.com/zeroz3r0/android-game-perf-tool-desktop" target="_blank" rel="noopener"><span class="en">View on GitHub</span><span class="es">Ver en GitHub</span></a>
@@ -202,89 +185,139 @@
   <section id="bugs">
     <div class="container">
       <div class="section-label en">Bug Reports</div>
-      <div class="section-label es">Informes de bugs</div>
-      <h2 class="en">Example bug report</h2>
-      <h2 class="es">Ejemplo de informe de bug</h2>
-      <p class="en" style="color:var(--muted); margin-bottom: 28px;">Real bug filed during regression testing of a mobile game update path. Company and project names have been anonymised.</p>
-      <p class="es" style="color:var(--muted); margin-bottom: 28px;">Bug real reportado durante las pruebas de regresion del flujo de actualizacion de un juego movil. El nombre del proyecto ha sido anonimizado.</p>
+      <div class="section-label es">Bug Reports</div>
+      <h2 class="en">Example bug reports</h2>
+      <h2 class="es">Ejemplos de reporte de bugs</h2>
+      <p class="en" style="color:var(--muted); margin-bottom: 32px;">Two real-format reports showing how I document issues at different severity levels. Project and company names have been anonymised.</p>
+      <p class="es" style="color:var(--muted); margin-bottom: 32px;">Dos reportes en formato real que muestran cómo documento incidencias de distinta gravedad. El nombre del proyecto está anonimizado.</p>
 
-      <div class="bug-card">
-        <div class="bug-header">
-          <div class="bug-id">MP-84</div>
-          <div class="bug-title en">Tutorial Block after update</div>
-          <div class="bug-title es">Bloqueo de tutorial tras actualizacion</div>
-          <div class="bug-badges">
-            <span class="badge badge-critical">Critical</span>
-            <span class="badge badge-blocker">Blocker</span>
-            <span class="badge badge-android">Android</span>
+      <div class="bug-grid">
+
+        <!-- BUG 1: Critical blocker -->
+        <div class="bug-card">
+          <div class="bug-header">
+            <div class="bug-id">MP-84</div>
+            <div class="bug-title en">Tutorial permanently blocked after app update</div>
+            <div class="bug-title es">Tutorial bloqueado de forma permanente tras actualizar la app</div>
+            <div class="bug-badges">
+              <span class="badge badge-critical">Critical</span>
+              <span class="badge badge-blocker">Blocker</span>
+              <span class="badge badge-android">Android</span>
+            </div>
+          </div>
+          <div class="bug-body">
+            <div class="bug-field">
+              <div class="bug-field-label en">Description</div>
+              <div class="bug-field-label es">Descripción</div>
+              <p class="en">Critical progression blocker in the update path from the production version to the latest build. If a user starts the tutorial in production but does not complete it before updating, they become permanently stuck on resume. The tutorial triggers a quest to build a Production Room, but the interactive UI element — the slot to deposit money and initiate construction — fails to render. The player has no way to progress or exit.</p>
+              <p class="es">Bloqueo crítico de progresión en el flujo de actualización de la versión de producción a la última build. Si un jugador inicia el tutorial en producción pero lo deja a medias antes de actualizar, queda bloqueado de forma permanente al retomarlo. El tutorial activa un objetivo para construir una Sala de Producción, pero el elemento interactivo de UI — el slot para depositar dinero e iniciar la construcción — no se renderiza. El jugador no puede avanzar ni salir del tutorial.</p>
+            </div>
+            <div class="bug-field">
+              <div class="bug-field-label en">Steps to reproduce</div>
+              <div class="bug-field-label es">Pasos para reproducir</div>
+              <ol class="bug-steps">
+                <li class="en"><span><strong>Install</strong> the current production version of the game.</span></li>
+                <li class="es"><span><strong>Instalar</strong> la versión de producción actual del juego.</span></li>
+                <li class="en"><span><strong>Start the tutorial</strong> and progress until just before the "Production Room" objective.</span></li>
+                <li class="es"><span><strong>Iniciar el tutorial</strong> y avanzar hasta justo antes del objetivo "Sala de Producción".</span></li>
+                <li class="en"><span><strong>Close the app</strong> without finishing the tutorial.</span></li>
+                <li class="es"><span><strong>Cerrar la app</strong> sin completar el tutorial.</span></li>
+                <li class="en"><span><strong>Update</strong> the app to the latest build.</span></li>
+                <li class="es"><span><strong>Actualizar</strong> la app a la última build disponible.</span></li>
+                <li class="en"><span><strong>Launch</strong> the game and resume the tutorial.</span></li>
+                <li class="es"><span><strong>Abrir</strong> el juego y retomar el tutorial.</span></li>
+                <li class="en"><span>Reach the <strong>"Create a Production Room"</strong> objective and observe the result.</span></li>
+                <li class="es"><span>Llegar al objetivo <strong>"Crear una Sala de Producción"</strong> y observar el resultado.</span></li>
+              </ol>
+            </div>
+            <div class="bug-field">
+              <div class="bug-field-label en">Expected vs Actual</div>
+              <div class="bug-field-label es">Resultado esperado vs obtenido</div>
+              <div class="bug-vs">
+                <div class="bug-vs-item expected">
+                  <div class="label en">Expected</div>
+                  <div class="label es">Esperado</div>
+                  <p class="en">The deposit slot renders correctly regardless of the version in which the tutorial was originally started. The player can complete the objective and continue.</p>
+                  <p class="es">El slot de depósito se renderiza correctamente independientemente de la versión en que se inició el tutorial. El jugador puede completar el objetivo y continuar.</p>
+                </div>
+                <div class="bug-vs-item actual">
+                  <div class="label en">Actual</div>
+                  <div class="label es">Obtenido</div>
+                  <p class="en">The deposit area and build button do not render. The player is permanently stuck with no way to continue or exit. The game is unplayable from this state.</p>
+                  <p class="es">El área de depósito y el botón de construcción no aparecen. El jugador queda atrapado sin posibilidad de avanzar ni salir. El juego queda inutilizable desde ese estado.</p>
+                </div>
+              </div>
+            </div>
+            <div class="bug-field">
+              <div class="bug-field-label">Log</div>
+              <p class="bug-note en">N/A — device wiped before log extraction.</p>
+              <p class="bug-note es">N/A — el dispositivo fue restablecido antes de extraer el log.</p>
+            </div>
           </div>
         </div>
-        <div class="bug-body">
 
-          <div class="bug-field">
-            <div class="bug-field-label en">Description</div>
-            <div class="bug-field-label es">Descripcion</div>
-            <p class="en">A critical progression blocker identified in the update path from Production to the latest build. If a user starts the tutorial in the production version but does not complete it before updating, they become permanently blocked on resume. The tutorial triggers a quest to create a Production Room, but the interactive UI element to deposit money and build the room fails to render entirely.</p>
-            <p class="es">Bloqueo critico de progresion en el flujo de actualizacion de la version de Produccion a la ultima build. Si un usuario inicia el tutorial en la version de produccion pero no lo completa antes de actualizar, queda bloqueado de forma permanente al retomarlo. El tutorial activa un objetivo para crear una Sala de Produccion, pero el elemento interactivo de UI para depositar dinero y construir la sala no se renderiza.</p>
+        <!-- BUG 2: Minor visual -->
+        <div class="bug-card">
+          <div class="bug-header">
+            <div class="bug-id">MP-231</div>
+            <div class="bug-title en">Shop "NEW" badge overlaps item price on small screens</div>
+            <div class="bug-title es">El badge "NEW" de la tienda tapa el precio en pantallas pequeñas</div>
+            <div class="bug-badges">
+              <span class="badge badge-low">Low</span>
+              <span class="badge badge-minor">Minor</span>
+              <span class="badge badge-android">Android</span>
+            </div>
           </div>
-
-          <div class="bug-field">
-            <div class="bug-field-label en">Steps to reproduce</div>
-            <div class="bug-field-label es">Pasos para reproducir</div>
-            <ol class="bug-steps">
-              <li class="en"><span><strong>Install</strong> the current Production version of the game.</span></li>
-              <li class="es"><span><strong>Instalar</strong> la version de Produccion actual del juego.</span></li>
-              <li class="en"><span><strong>Start the tutorial</strong> and progress until just before the "Production Room" objective.</span></li>
-              <li class="es"><span><strong>Iniciar el tutorial</strong> y avanzar hasta justo antes del objetivo "Sala de Produccion".</span></li>
-              <li class="en"><span><strong>Close the app</strong> without finishing the tutorial.</span></li>
-              <li class="es"><span><strong>Cerrar la app</strong> sin finalizar el tutorial.</span></li>
-              <li class="en"><span><strong>Update</strong> the app to the latest build.</span></li>
-              <li class="es"><span><strong>Actualizar</strong> la app a la ultima build.</span></li>
-              <li class="en"><span><strong>Launch</strong> the game and resume the tutorial.</span></li>
-              <li class="es"><span><strong>Abrir</strong> el juego y retomar el tutorial.</span></li>
-              <li class="en"><span>Reach the <strong>"Create a Production Room"</strong> objective.</span></li>
-              <li class="es"><span>Llegar al objetivo <strong>"Crear una Sala de Produccion"</strong>.</span></li>
-              <li class="en"><span><strong>Observe:</strong> the game prompts the user to create the room, but the deposit area and build button are missing.</span></li>
-              <li class="es"><span><strong>Observar:</strong> el juego pide al usuario que cree la sala, pero el area de deposito y el boton de construccion no aparecen.</span></li>
-            </ol>
-          </div>
-
-          <div class="bug-field">
-            <div class="bug-field-label en">Expected vs Actual</div>
-            <div class="bug-field-label es">Resultado esperado vs Resultado obtenido</div>
-            <div class="bug-vs">
-              <div class="bug-vs-item expected">
-                <div class="label en">Expected</div>
-                <div class="label es">Esperado</div>
-                <p class="en">The interactive slot to deposit money and initiate construction renders correctly regardless of which app version the tutorial was originally started on. The player can complete the objective and continue.</p>
-                <p class="es">El slot interactivo para depositar dinero e iniciar la construccion se renderiza correctamente independientemente de en que version se inicio el tutorial. El jugador puede completar el objetivo y continuar.</p>
+          <div class="bug-body">
+            <div class="bug-field">
+              <div class="bug-field-label en">Description</div>
+              <div class="bug-field-label es">Descripción</div>
+              <p class="en">On devices with a screen of 5 inches or smaller, the "NEW" badge on the Shop tab overflows its bounds and partially covers the price label of the first item in the featured carousel. The purchase flow itself is not affected — this is a layout-only issue limited to low-end screen sizes.</p>
+              <p class="es">En dispositivos con pantalla de 5 pulgadas o menos, el badge "NEW" de la pestaña de la tienda se sale de sus límites y tapa parcialmente el precio del primer artículo del carrusel de destacados. El flujo de compra funciona correctamente — es un problema puramente de maquetación en pantallas pequeñas de gama baja.</p>
+            </div>
+            <div class="bug-field">
+              <div class="bug-field-label en">Steps to reproduce</div>
+              <div class="bug-field-label es">Pasos para reproducir</div>
+              <ol class="bug-steps">
+                <li class="en"><span><strong>Launch</strong> the game on a device with a 5-inch or smaller screen.</span></li>
+                <li class="es"><span><strong>Lanzar</strong> el juego en un dispositivo con pantalla de 5 pulgadas o menos.</span></li>
+                <li class="en"><span><strong>Navigate</strong> to the Shop tab.</span></li>
+                <li class="es"><span><strong>Ir</strong> a la pestaña de la Tienda.</span></li>
+                <li class="en"><span>Scroll to the <strong>Featured</strong> section.</span></li>
+                <li class="es"><span>Desplazarse hasta la sección <strong>Destacados</strong>.</span></li>
+                <li class="en"><span>Observe the "NEW" badge position relative to the first item's price label.</span></li>
+                <li class="es"><span>Observar la posición del badge "NEW" respecto al precio del primer artículo.</span></li>
+              </ol>
+            </div>
+            <div class="bug-field">
+              <div class="bug-field-label en">Expected vs Actual</div>
+              <div class="bug-field-label es">Resultado esperado vs obtenido</div>
+              <div class="bug-vs">
+                <div class="bug-vs-item expected">
+                  <div class="label en">Expected</div>
+                  <div class="label es">Esperado</div>
+                  <p class="en">The "NEW" badge stays within the tab boundaries on all supported screen sizes. Item prices remain fully legible.</p>
+                  <p class="es">El badge "NEW" se mantiene dentro de los límites de la pestaña en todos los tamaños de pantalla soportados. Los precios son completamente legibles.</p>
+                </div>
+                <div class="bug-vs-item actual">
+                  <div class="label en">Actual</div>
+                  <div class="label es">Obtenido</div>
+                  <p class="en">The badge overflows into the item listing area, covering part of the price text on screens smaller than 5.1 inches.</p>
+                  <p class="es">El badge se superpone al listado de artículos y tapa parte del texto del precio en pantallas menores de 5,1 pulgadas.</p>
+                </div>
               </div>
-              <div class="bug-vs-item actual">
-                <div class="label en">Actual</div>
-                <div class="label es">Obtenido</div>
-                <p class="en">The deposit area and build button do not render. The player is permanently stuck with no way to progress or exit the tutorial. The game is unplayable from this state.</p>
-                <p class="es">El area de deposito y el boton de construccion no se renderizan. El jugador queda bloqueado de forma permanente sin posibilidad de avanzar ni salir del tutorial. El juego queda inutilizable.</p>
+            </div>
+            <div class="bug-field">
+              <div class="bug-field-label en">Device matrix</div>
+              <div class="bug-field-label es">Matriz de dispositivos</div>
+              <div class="bug-devices">
+                <div class="device-row"><span class="device-label en">Reproduces</span><span class="device-label es">Reproduce</span><span>Samsung Galaxy A03s (Android 12) &middot; Xiaomi Redmi 9A (Android 10)</span></div>
+                <div class="device-row"><span class="device-label en">No repro</span><span class="device-label es">No reproduce</span><span>Samsung Galaxy S23 (Android 14) &middot; Pixel 6a (Android 13)</span></div>
               </div>
             </div>
           </div>
-
-          <div class="bug-field">
-            <div class="bug-field-label">Log</div>
-            <p style="color:var(--muted); font-size:14px; font-style:italic;" class="en">N/A - device wiped before log extraction was performed.</p>
-            <p style="color:var(--muted); font-size:14px; font-style:italic;" class="es">N/A - el dispositivo fue restablecido antes de extraer el log.</p>
-          </div>
-
-          <div class="bug-field">
-            <div class="bug-field-label en">Screenshot</div>
-            <div class="bug-field-label es">Captura de pantalla</div>
-            <div class="bug-screenshot">
-              <img src="assets/bug-mp84.png" alt="Bug MP-84 screenshot showing the blocked tutorial UI" />
-            </div>
-            <p class="bug-note en">Jira ticket MP-84. Labels: blockUpdateTutorial.</p>
-            <p class="bug-note es">Ticket de Jira MP-84. Etiquetas: blockUpdateTutorial.</p>
-          </div>
-
         </div>
+
       </div>
     </div>
   </section>
@@ -300,30 +333,24 @@
           <h4 class="es">Testing</h4>
           <ul>
             <li class="en">Functional testing</li><li class="es">Pruebas funcionales</li>
-            <li class="en">Regression testing</li><li class="es">Pruebas de regresion</li>
+            <li class="en">Regression testing</li><li class="es">Pruebas de regresión</li>
             <li class="en">Performance testing</li><li class="es">Pruebas de rendimiento</li>
             <li class="en">Device matrix</li><li class="es">Matriz de dispositivos</li>
-            <li class="en">Localisation (LQA)</li><li class="es">Localizacion (LQA)</li>
+            <li class="en">Localisation (LQA)</li><li class="es">Localización (LQA)</li>
           </ul>
         </div>
         <div class="skill-block">
           <h4>Tools</h4>
-          <ul>
-            <li>Jira</li><li>ADB / logcat</li><li>Android Studio</li><li>Git / GitHub</li><li>Charles Proxy</li>
-          </ul>
+          <ul><li>Jira</li><li>ADB / logcat</li><li>Android Studio</li><li>Git / GitHub</li><li>Charles Proxy</li></ul>
         </div>
         <div class="skill-block">
           <h4>SDKs</h4>
-          <ul>
-            <li>Singular</li><li>AppsFlyer</li><li>Firebase</li><li>AdMob / MAX</li><li>Google Play Vitals</li>
-          </ul>
+          <ul><li>Singular</li><li>AppsFlyer</li><li>Firebase</li><li>AdMob / MAX</li><li>Google Play Vitals</li></ul>
         </div>
         <div class="skill-block">
           <h4 class="en">Platforms</h4>
           <h4 class="es">Plataformas</h4>
-          <ul>
-            <li>Android 5 to 16</li><li>iOS 14+</li><li>Unity</li><li>Unreal Engine</li>
-          </ul>
+          <ul><li>Android 5 — 16</li><li>iOS 14+</li><li>Unity</li><li>Unreal Engine</li></ul>
         </div>
       </div>
     </div>
@@ -341,8 +368,8 @@
           <span class="period">2024 &mdash; <span class="en">present</span><span class="es">actualidad</span></span>
         </div>
         <div class="exp-company">Viva Studios</div>
-        <p class="en">Mobile games QA at a publisher. Responsible for validating builds across functional, performance, and integration dimensions before each release. Daily work with ADB, Jira, device matrices, and SDK verification including analytics, advertising, and billing integrations.</p>
-        <p class="es">QA de juegos moviles en un publisher. Responsable de validar builds en los ambitos funcional, de rendimiento y de integraciones antes de cada lanzamiento. Trabajo diario con ADB, Jira, matrices de dispositivos y verificacion de SDKs de analitica, publicidad y facturacion.</p>
+        <p class="en">Mobile games QA at a publisher. Responsible for validating builds across functional, performance, and integration dimensions before each release. Daily work with ADB, Jira, device matrices, and SDK verification — analytics, advertising, and in-app billing.</p>
+        <p class="es">QA de juegos móviles en un publisher. Responsable de validar builds en los ámbitos funcional, de rendimiento y de integraciones antes de cada lanzamiento. Trabajo diario con ADB, Jira, matrices de dispositivos y verificación de SDKs de analítica, publicidad y facturación.</p>
       </div>
     </div>
   </section>
@@ -354,7 +381,7 @@
       <h2 class="en">Let's talk</h2>
       <h2 class="es">Hablamos</h2>
       <p class="en" style="color:var(--muted); max-width:480px;">Looking for QA roles in games or adjacent industries. If you are working on something interesting, I would like to hear about it.</p>
-      <p class="es" style="color:var(--muted); max-width:480px;">Busco posiciones de QA en videojuegos o sectores relacionados. Si estais trabajando en algo interesante, me encantaria escucharos.</p>
+      <p class="es" style="color:var(--muted); max-width:480px;">Busco posiciones de QA en videojuegos o sectores relacionados. Si estáis trabajando en algo interesante, me encantaría escucharos.</p>
       <div class="contact-links">
         <a href="mailto:sergioperezc109@gmail.com">sergioperezc109@gmail.com</a>
         <a href="https://www.linkedin.com/in/sergio-p%C3%A9rez-casado-5290b2201/" target="_blank" rel="noopener">LinkedIn</a>
@@ -366,20 +393,15 @@
 </main>
 
 <footer>
-  <div class="container">Sergio Perez Casado &middot; QA Engineer</div>
+  <div class="container">Sergio Pérez Casado &middot; QA Engineer</div>
 </footer>
 
 <script>
   function toggleLang() {
     const html = document.documentElement;
     const btn = document.getElementById("lang-btn");
-    if (html.lang === "en") {
-      html.lang = "es";
-      btn.textContent = "EN";
-    } else {
-      html.lang = "en";
-      btn.textContent = "ES";
-    }
+    if (html.lang === "en") { html.lang = "es"; btn.textContent = "EN"; }
+    else { html.lang = "en"; btn.textContent = "ES"; }
   }
 </script>
 
