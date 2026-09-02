@@ -62,7 +62,7 @@
     .badge-android { background: var(--accent-dim); color: var(--accent); }
     .bug-body { padding: 28px 32px; display: flex; flex-direction: column; gap: 24px; }
     .bug-field-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 8px; }
-    .bug-field p, .bug-field li { color: var(--muted); font-size: 15px; }
+    .bug-field p { color: var(--muted); font-size: 15px; }
     .bug-steps { list-style: none; counter-reset: steps; }
     .bug-steps li { counter-increment: steps; display: flex; gap: 12px; font-size: 14px; color: var(--muted); padding: 6px 0; border-top: 1px solid var(--border); align-items: baseline; }
     .bug-steps li::before { content: counter(steps); min-width: 20px; color: var(--accent); font-family: monospace; font-weight: 600; flex-shrink: 0; }
@@ -82,13 +82,20 @@
     .skill-block h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 12px; }
     .skill-block ul { list-style: none; }
     .skill-block li { font-size: 14px; color: var(--muted); padding: 3px 0; }
-    .exp-item { margin-bottom: 36px; }
-    .exp-item:last-child { margin-bottom: 0; }
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .exp-item { padding: 32px 0; border-bottom: 1px solid var(--border); }
+    .exp-item:first-child { padding-top: 0; }
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
     .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
     .exp-header h3 { font-size: 17px; font-weight: 600; }
-    .period { font-size: 13px; color: var(--muted); }
-    .exp-company { font-size: 14px; color: var(--accent); margin-bottom: 10px; }
-    .exp-item p { color: var(--muted); font-size: 15px; }
+    .period { font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .exp-company { font-size: 14px; color: var(--accent); margin-bottom: 14px; }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .exp-bullets li { font-size: 14px; color: var(--muted); padding: 5px 0; border-top: 1px solid var(--border); display: flex; gap: 10px; align-items: baseline; }
+    .exp-bullets li::before { content: "->"; color: var(--accent); font-family: monospace; flex-shrink: 0; }
+    .edu-item { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    .edu-item h3 { font-size: 16px; font-weight: 600; }
+    .edu-item .edu-meta { font-size: 14px; color: var(--muted); }
     .contact-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
     .contact-links a { font-size: 15px; color: var(--muted); transition: color .2s; }
     .contact-links a:hover { color: var(--text); text-decoration: none; }
@@ -97,6 +104,7 @@
       .hero { padding: 64px 0 48px; } section { padding: 48px 0; }
       .project-card { padding: 20px; } .bug-header, .bug-body { padding: 20px; }
       .bug-vs { grid-template-columns: 1fr; } nav ul { gap: 14px; }
+      .exp-header { flex-direction: column; gap: 2px; }
     }
   </style>
 </head>
@@ -109,8 +117,9 @@
       <ul>
         <li><a href="#about"><span class="en">About</span><span class="es">Sobre mí</span></a></li>
         <li><a href="#work"><span class="en">Work</span><span class="es">Proyectos</span></a></li>
-        <li><a href="#bugs"><span class="en">Bug Reports</span><span class="es">Bug Reports</span></a></li>
+        <li><a href="#bugs">Bug Reports</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience"><span class="en">Experience</span><span class="es">Experiencia</span></a></li>
         <li><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
       </ul>
       <button id="lang-btn" onclick="toggleLang()">ES</button>
@@ -142,13 +151,13 @@
       <h2 class="en">How I work</h2>
       <h2 class="es">Cómo trabajo</h2>
       <div class="about-text en">
-        <p>Most of my time goes into validating builds before they ship: functional testing, performance, SDK integrations for analytics and advertising, localisation, and a fair amount of ADB work. I use Jira daily and I am comfortable reading logcat for what it actually tells you, not just copying the stack trace into a ticket.</p>
+        <p>Most of my time goes into validating builds before they ship: functional testing, performance, SDK integrations for analytics and advertising, localisation, and a fair amount of ADB work. I use Jira and TestRail daily and I am comfortable reading logcat for what it actually tells you, not just copying the stack trace into a ticket.</p>
         <p>I think a QA engineer who understands <strong>why</strong> something breaks is a lot more useful to a dev team than one who only reports that it broke. Bug reports should give developers something actionable, not just a description of what they can already see on screen.</p>
         <p>I also built <strong>GamePerf</strong>, a desktop tool for measuring mobile game performance, because the existing options either cost too much or required modifying the game. It is open source and I use it at work.</p>
       </div>
       <div class="about-text es">
-        <p>Llevo dos años trabajando en QA de videojuegos móviles. El grueso del trabajo es validar builds antes de cada lanzamiento: pruebas funcionales, rendimiento, integraciones de SDKs de analítica y publicidad, localización, y bastante adb. Uso Jira a diario y me manejo bien con logcat — no me limito a copiar el stack trace en el ticket, sino a entender qué lo está causando.</p>
-        <p>Un QA que entiende <strong>por qué</strong> falla algo es mucho más útil para desarrollo que uno que solo anota que ha fallado. Intento que mis reportes den contexto de verdad: qué dispositivo, en qué condiciones, qué dice el log, si es reproducible al 100% o solo a veces y por qué.</p>
+        <p>Llevo dos años trabajando en QA de videojuegos móviles. El grueso del trabajo es validar builds antes de cada lanzamiento: pruebas funcionales, rendimiento, integraciones de SDKs de analítica y publicidad, localización, y bastante ADB. Uso Jira y TestRail a diario y me manejo bien con logcat — no me limito a copiar el stack trace en el ticket, sino a entender qué lo está causando.</p>
+        <p>Un QA que entiende <strong>por qué</strong> falla algo es mucho más útil para desarrollo que uno que solo anota que ha fallado. Intento que mis reportes den contexto de verdad: dispositivo, condiciones, log, si es reproducible al 100% o solo a veces y por qué.</p>
         <p>También construí <strong>GamePerf</strong>, una herramienta de escritorio para medir el rendimiento de juegos móviles sin tocar el código del juego. La uso en el trabajo y es código abierto.</p>
       </div>
     </div>
@@ -169,11 +178,11 @@
           <span>Kotlin</span><span>Compose Desktop</span><span>ADB</span><span>Python</span><span>GitHub Actions</span><span>Android</span><span>iOS</span>
         </div>
         <ul class="highlights">
-          <li><span class="en">Automatic detection of ads, IAP, and loading screens so FPS averages reflect actual gameplay, not SDK overhead</span><span class="es">Detección automática de anuncios, IAP y pantallas de carga para que las medias de FPS reflejen el gameplay real, no la sobrecarga de los SDKs</span></li>
-          <li><span class="en">GPU usage without root on Mali and Adreno chipsets via kernel sysfs, with graceful fallback on unsupported devices</span><span class="es">Uso de GPU sin root en chipsets Mali y Adreno vía kernel sysfs, con fallback automático en dispositivos que no lo exponen</span></li>
-          <li><span class="en">Wake lock monitoring against Google Play Vitals 2024 thresholds to catch misconfigured analytics SDKs before they hurt store ranking</span><span class="es">Monitorización de wake locks según los umbrales de Google Play Vitals 2024 — detecta SDKs de analítica mal configurados antes de que afecten al ranking en tienda</span></li>
-          <li><span class="en">Game phase detection for Unity and Unreal by reading scene names from logcat with zero instrumentation required</span><span class="es">Detección de fases de juego en Unity y Unreal leyendo los nombres de escena del logcat, sin instrumentación ni acceso al código fuente</span></li>
-          <li><span class="en">Session export as a self-contained .gameperf file and built-in side-by-side session comparison</span><span class="es">Exportación de sesiones como archivo .gameperf autocontenido y comparador integrado entre dos sesiones</span></li>
+          <li><span class="en">Automatic detection of ads, IAP, and loading screens so FPS averages reflect actual gameplay, not SDK overhead</span><span class="es">Detección automática de anuncios, IAP y pantallas de carga para que las medias de FPS reflejen el gameplay real</span></li>
+          <li><span class="en">GPU usage without root on Mali and Adreno chipsets via kernel sysfs, with graceful fallback on unsupported devices</span><span class="es">Uso de GPU sin root en chipsets Mali y Adreno vía kernel sysfs, con fallback automático en dispositivos incompatibles</span></li>
+          <li><span class="en">Wake lock monitoring against Google Play Vitals 2024 thresholds to catch misconfigured analytics SDKs</span><span class="es">Monitorización de wake locks según los umbrales de Google Play Vitals 2024 para detectar SDKs mal configurados</span></li>
+          <li><span class="en">Game phase detection for Unity and Unreal by reading scene names from logcat — zero instrumentation required</span><span class="es">Detección de fases de juego en Unity y Unreal leyendo el logcat, sin instrumentación ni acceso al código fuente</span></li>
+          <li><span class="en">Session export as a self-contained .gameperf file and built-in side-by-side session comparison</span><span class="es">Exportación de sesiones como archivo .gameperf autocontenido y comparador integrado entre sesiones</span></li>
           <li><span class="en">300+ tests, CI and release pipelines building Mac, Windows and Linux installers in parallel</span><span class="es">Más de 300 tests y pipelines de CI y release que construyen instaladores para Mac, Windows y Linux en paralelo</span></li>
         </ul>
         <br>
@@ -184,16 +193,12 @@
 
   <section id="bugs">
     <div class="container">
-      <div class="section-label en">Bug Reports</div>
-      <div class="section-label es">Bug Reports</div>
+      <div class="section-label">Bug Reports</div>
       <h2 class="en">Example bug reports</h2>
       <h2 class="es">Ejemplos de reporte de bugs</h2>
       <p class="en" style="color:var(--muted); margin-bottom: 32px;">Two real-format reports showing how I document issues at different severity levels. Project and company names have been anonymised.</p>
       <p class="es" style="color:var(--muted); margin-bottom: 32px;">Dos reportes en formato real que muestran cómo documento incidencias de distinta gravedad. El nombre del proyecto está anonimizado.</p>
-
       <div class="bug-grid">
-
-        <!-- BUG 1: Critical blocker -->
         <div class="bug-card">
           <div class="bug-header">
             <div class="bug-id">MP-84</div>
@@ -216,18 +221,18 @@
               <div class="bug-field-label en">Steps to reproduce</div>
               <div class="bug-field-label es">Pasos para reproducir</div>
               <ol class="bug-steps">
-                <li class="en"><span><strong>Install</strong> the current production version of the game.</span></li>
-                <li class="es"><span><strong>Instalar</strong> la versión de producción actual del juego.</span></li>
+                <li class="en"><span><strong>Install</strong> the current production version.</span></li>
+                <li class="es"><span><strong>Instalar</strong> la versión de producción actual.</span></li>
                 <li class="en"><span><strong>Start the tutorial</strong> and progress until just before the "Production Room" objective.</span></li>
                 <li class="es"><span><strong>Iniciar el tutorial</strong> y avanzar hasta justo antes del objetivo "Sala de Producción".</span></li>
                 <li class="en"><span><strong>Close the app</strong> without finishing the tutorial.</span></li>
                 <li class="es"><span><strong>Cerrar la app</strong> sin completar el tutorial.</span></li>
-                <li class="en"><span><strong>Update</strong> the app to the latest build.</span></li>
-                <li class="es"><span><strong>Actualizar</strong> la app a la última build disponible.</span></li>
+                <li class="en"><span><strong>Update</strong> to the latest build.</span></li>
+                <li class="es"><span><strong>Actualizar</strong> a la última build.</span></li>
                 <li class="en"><span><strong>Launch</strong> the game and resume the tutorial.</span></li>
                 <li class="es"><span><strong>Abrir</strong> el juego y retomar el tutorial.</span></li>
-                <li class="en"><span>Reach the <strong>"Create a Production Room"</strong> objective and observe the result.</span></li>
-                <li class="es"><span>Llegar al objetivo <strong>"Crear una Sala de Producción"</strong> y observar el resultado.</span></li>
+                <li class="en"><span>Reach the <strong>"Create a Production Room"</strong> objective and observe.</span></li>
+                <li class="es"><span>Llegar al objetivo <strong>"Crear una Sala de Producción"</strong> y observar.</span></li>
               </ol>
             </div>
             <div class="bug-field">
@@ -243,8 +248,8 @@
                 <div class="bug-vs-item actual">
                   <div class="label en">Actual</div>
                   <div class="label es">Obtenido</div>
-                  <p class="en">The deposit area and build button do not render. The player is permanently stuck with no way to continue or exit. The game is unplayable from this state.</p>
-                  <p class="es">El área de depósito y el botón de construcción no aparecen. El jugador queda atrapado sin posibilidad de avanzar ni salir. El juego queda inutilizable desde ese estado.</p>
+                  <p class="en">The deposit area and build button do not render. The player is permanently stuck with no way to continue or exit the tutorial.</p>
+                  <p class="es">El área de depósito y el botón de construcción no aparecen. El jugador queda atrapado sin posibilidad de avanzar ni salir del tutorial.</p>
                 </div>
               </div>
             </div>
@@ -256,7 +261,6 @@
           </div>
         </div>
 
-        <!-- BUG 2: Minor visual -->
         <div class="bug-card">
           <div class="bug-header">
             <div class="bug-id">MP-231</div>
@@ -273,7 +277,7 @@
               <div class="bug-field-label en">Description</div>
               <div class="bug-field-label es">Descripción</div>
               <p class="en">On devices with a screen of 5 inches or smaller, the "NEW" badge on the Shop tab overflows its bounds and partially covers the price label of the first item in the featured carousel. The purchase flow itself is not affected — this is a layout-only issue limited to low-end screen sizes.</p>
-              <p class="es">En dispositivos con pantalla de 5 pulgadas o menos, el badge "NEW" de la pestaña de la tienda se sale de sus límites y tapa parcialmente el precio del primer artículo del carrusel de destacados. El flujo de compra funciona correctamente — es un problema puramente de maquetación en pantallas pequeñas de gama baja.</p>
+              <p class="es">En dispositivos con pantalla de 5 pulgadas o menos, el badge "NEW" de la pestaña de la tienda se sale de sus límites y tapa parcialmente el precio del primer artículo del carrusel de destacados. El flujo de compra funciona con normalidad — es un problema puramente de maquetación en pantallas pequeñas de gama baja.</p>
             </div>
             <div class="bug-field">
               <div class="bug-field-label en">Steps to reproduce</div>
@@ -283,10 +287,8 @@
                 <li class="es"><span><strong>Lanzar</strong> el juego en un dispositivo con pantalla de 5 pulgadas o menos.</span></li>
                 <li class="en"><span><strong>Navigate</strong> to the Shop tab.</span></li>
                 <li class="es"><span><strong>Ir</strong> a la pestaña de la Tienda.</span></li>
-                <li class="en"><span>Scroll to the <strong>Featured</strong> section.</span></li>
-                <li class="es"><span>Desplazarse hasta la sección <strong>Destacados</strong>.</span></li>
-                <li class="en"><span>Observe the "NEW" badge position relative to the first item's price label.</span></li>
-                <li class="es"><span>Observar la posición del badge "NEW" respecto al precio del primer artículo.</span></li>
+                <li class="en"><span>Scroll to the <strong>Featured</strong> section and observe the badge position.</span></li>
+                <li class="es"><span>Desplazarse a <strong>Destacados</strong> y observar la posición del badge.</span></li>
               </ol>
             </div>
             <div class="bug-field">
@@ -296,14 +298,14 @@
                 <div class="bug-vs-item expected">
                   <div class="label en">Expected</div>
                   <div class="label es">Esperado</div>
-                  <p class="en">The "NEW" badge stays within the tab boundaries on all supported screen sizes. Item prices remain fully legible.</p>
-                  <p class="es">El badge "NEW" se mantiene dentro de los límites de la pestaña en todos los tamaños de pantalla soportados. Los precios son completamente legibles.</p>
+                  <p class="en">The "NEW" badge stays within the tab boundaries on all supported screen sizes. Prices remain fully legible.</p>
+                  <p class="es">El badge permanece dentro de los límites de la pestaña en todos los tamaños soportados. Los precios son legibles.</p>
                 </div>
                 <div class="bug-vs-item actual">
                   <div class="label en">Actual</div>
                   <div class="label es">Obtenido</div>
                   <p class="en">The badge overflows into the item listing area, covering part of the price text on screens smaller than 5.1 inches.</p>
-                  <p class="es">El badge se superpone al listado de artículos y tapa parte del texto del precio en pantallas menores de 5,1 pulgadas.</p>
+                  <p class="es">El badge se superpone al listado de artículos y tapa parte del precio en pantallas menores de 5,1 pulgadas.</p>
                 </div>
               </div>
             </div>
@@ -317,7 +319,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -341,16 +342,22 @@
         </div>
         <div class="skill-block">
           <h4>Tools</h4>
-          <ul><li>Jira</li><li>ADB / logcat</li><li>Android Studio</li><li>Git / GitHub</li><li>Charles Proxy</li></ul>
+          <ul>
+            <li>Jira</li><li>TestRail</li><li>ADB / logcat</li><li>Xcode</li><li>Confluence</li><li>Git</li>
+          </ul>
         </div>
         <div class="skill-block">
           <h4>SDKs</h4>
-          <ul><li>Singular</li><li>AppsFlyer</li><li>Firebase</li><li>AdMob / MAX</li><li>Google Play Vitals</li></ul>
+          <ul>
+            <li>Singular</li><li>AppsFlyer</li><li>Firebase</li><li>AdMob / MAX</li><li>Google Play Vitals</li>
+          </ul>
         </div>
         <div class="skill-block">
           <h4 class="en">Platforms</h4>
           <h4 class="es">Plataformas</h4>
-          <ul><li>Android 5 — 16</li><li>iOS 14+</li><li>Unity</li><li>Unreal Engine</li></ul>
+          <ul>
+            <li>Android 5 — 16</li><li>iOS 14+</li><li>Unity</li><li>Unreal Engine 5</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -362,15 +369,79 @@
       <div class="section-label es">Experiencia</div>
       <h2 class="en">Background</h2>
       <h2 class="es">Trayectoria</h2>
-      <div class="exp-item">
-        <div class="exp-header">
-          <h3>QA Engineer</h3>
-          <span class="period">2024 &mdash; <span class="en">present</span><span class="es">actualidad</span></span>
+
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3 class="en">QA Engineer</h3>
+            <h3 class="es">QA Engineer</h3>
+            <span class="period">Oct 2024 — <span class="en">present</span><span class="es">actualidad</span></span>
+          </div>
+          <div class="exp-company">Viva Studios</div>
+          <ul class="exp-bullets">
+            <li class="en">Full release cycle management on iOS and Android — ensuring builds reach production free of critical defects</li>
+            <li class="es">Gestión del ciclo completo de lanzamientos en iOS y Android, asegurando que las builds llegan a producción sin defectos críticos</li>
+            <li class="en">Regression, functional and usability testing tracked in Jira and TestRail</li>
+            <li class="es">Pruebas de regresión, funcionales y de usabilidad con seguimiento en Jira y TestRail</li>
+            <li class="en">Technical log analysis (ADB / Xcode) to identify root causes and communicate them clearly to dev teams</li>
+            <li class="es">Análisis de logs técnicos (ADB / Xcode) para identificar la causa raíz de los fallos y comunicarla al equipo de desarrollo</li>
+            <li class="en">LQA validation across device matrices and OS versions</li>
+            <li class="es">Validación de LQA en matrices de dispositivos y versiones de sistema operativo</li>
+            <li class="en">Built AI-driven automations for support email triage and Google Play review responses, reducing response times significantly</li>
+            <li class="es">Desarrollé automatizaciones con IA para la gestión del soporte por email y las reseñas de Google Play, reduciendo los tiempos de respuesta de forma considerable</li>
+          </ul>
         </div>
-        <div class="exp-company">Viva Studios</div>
-        <p class="en">Mobile games QA at a publisher. Responsible for validating builds across functional, performance, and integration dimensions before each release. Daily work with ADB, Jira, device matrices, and SDK verification — analytics, advertising, and in-app billing.</p>
-        <p class="es">QA de juegos móviles en un publisher. Responsable de validar builds en los ámbitos funcional, de rendimiento y de integraciones antes de cada lanzamiento. Trabajo diario con ADB, Jira, matrices de dispositivos y verificación de SDKs de analítica, publicidad y facturación.</p>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3 class="en">Co-Founder &amp; QA Lead</h3>
+            <h3 class="es">Co-Fundador &amp; QA Lead</h3>
+            <span class="period">Feb — Jul 2024</span>
+          </div>
+          <div class="exp-company en">Indie Project &middot; Polo Digital (G2W)</div>
+          <div class="exp-company es">Proyecto Indie &middot; Polo Digital (G2W)</div>
+          <ul class="exp-bullets">
+            <li class="en">Defined and led the QA strategy for a 6-person cross-functional team, acting as the main technical bridge between design and development</li>
+            <li class="es">Definí y lideré la estrategia de QA para un equipo multidisciplinar de 6 personas, haciendo de puente técnico entre diseño y desarrollo</li>
+            <li class="en">Set up the quality pipeline from scratch — testing standards, tooling and documentation — starting from the prototype phase</li>
+            <li class="es">Monté el pipeline de calidad desde cero: estándares de testing, herramientas y documentación, desde la fase de prototipo</li>
+            <li class="en">Ran live playtesting sessions at industry events and translated user feedback into concrete mechanic iterations</li>
+            <li class="es">Organicé y conduje sesiones de playtesting en eventos del sector, convirtiendo el feedback en cambios concretos sobre las mecánicas</li>
+            <li class="en">Ensured build stability for investor and publisher presentations — zero crashes during live demos</li>
+            <li class="es">Garanticé la estabilidad de las builds para presentaciones ante inversores y publishers, sin un solo crash en directo</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3 class="en">QA Intern</h3>
+            <h3 class="es">Prácticas QA</h3>
+            <span class="period">May — Jul 2022</span>
+          </div>
+          <div class="exp-company">Kaiju Games</div>
+          <ul class="exp-bullets">
+            <li class="en">Balancing tests for player progression systems and enemy mechanics</li>
+            <li class="es">Pruebas de balanceo del sistema de progresión del jugador y mecánicas de enemigos</li>
+            <li class="en">Level design validation to ensure playability and detect blockers or exploits</li>
+            <li class="es">Validación del diseño de niveles para detectar bloqueos, exploits y problemas de jugabilidad</li>
+            <li class="en">Design documentation (GDD) management to ensure technical coherence</li>
+            <li class="es">Gestión de la documentación de diseño (GDD) para asegurar la coherencia técnica del proyecto</li>
+          </ul>
+        </div>
+
       </div>
+
+      <div style="margin-top: 40px;">
+        <div class="section-label en">Education</div>
+        <div class="section-label es">Formación</div>
+        <div class="edu-item" style="margin-top: 12px;">
+          <h3 class="en">Higher Technician in Video Game Creation</h3>
+          <h3 class="es">Grado Superior — Técnico Experto en Creación de Videojuegos</h3>
+          <span class="edu-meta">EVAD, Málaga &middot; 2022</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
